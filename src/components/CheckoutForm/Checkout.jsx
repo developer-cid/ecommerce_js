@@ -43,8 +43,8 @@ const Checkout = ({ cart }) => {
     generateToken();
   }, [cart]);
 
-  const nextStep = () => setActiveStep((prevState) => prevState + 1);
-  const backStep = () => setActiveStep((prevState) => prevState - 1);
+  const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
   const next = (data) => {
     console.log("🚀 ~ file: Checkout.jsx ~ line 46 ~ next ~ data", data);
@@ -61,6 +61,7 @@ const Checkout = ({ cart }) => {
           <PaymentForm
             shippingData={shippingData}
             checkoutToken={checkoutToken}
+            backStep={backStep}
           />
         );
   const ConfirmationForm = () => <div>Confirmation Form</div>;
